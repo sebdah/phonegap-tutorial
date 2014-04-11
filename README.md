@@ -1,5 +1,7 @@
 # PhoneGap installation on Windows
 
+This guide will help you kickstart your PhoneGap development. It has been tested on Windows 8.1.
+
 ## Requirements
 
 We will need to have the following components. The guide will help you to install them.
