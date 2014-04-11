@@ -36,7 +36,7 @@ The next thing we need to do is to add Java to your system `PATH`.
 - Click **Environment Variables**
 - Under *User variables*, click **New** (or **Edit** if you already have a variable called `PATH`)
 - If you are creating a new variable, write ``PATH`` in *Variable name*
-- Add the path you copied above to the **Variable value** field. If you already have a value here, keep it and separate the paths using `;`
+- Add the path you copied above to the **Variable value** field. Separate multiple paths with a `;`.
 - Click **OK**
 - Under *System variables*, click **New** (or **Edit** if you already have a variable called `JAVA_HOME`)
 - If you are creating a new variable, write ``JAVA_HOME`` in *Variable name*
@@ -64,7 +64,7 @@ Ant is distributed in a zip file. Extract the zip file to `C:\Program Files\Apac
 - Click **Environment Variables**
 - Under *User variables*, click **New** (or **Edit** if you already have a variable called `PATH`)
 - If you are creating a new variable, write ``PATH`` in *Variable name*
-- Add `C:\Program Files\Apache\apache-ant-1.9.3\bin` to the **Variable value** field. If you already have a value here, keep it and separate the paths using `;`. Also remember to change the version number in the path as needed.
+- Add `C:\Program Files\Apache\apache-ant-1.9.3\bin` to the **Variable value** field. Separate multiple paths with a `;`. Also remember to change the version number in the path as needed.
 - Click **OK**
 
 ## Installing Android Developer Tools (ADT)
@@ -134,6 +134,6 @@ This will start a new PhoneGap project with the initial file structure.
 
 ### Start the Android emulator
 
-You should now start the Android emulator. This might take some time the first time you do it, as PhoneGap will download requirements.
+You should now start the Android emulator. This might take some time the first time you do it, as PhoneGap will download requirements. Make sure that you are in the `TeacherFinder` folder.
 
     phonegap run android
