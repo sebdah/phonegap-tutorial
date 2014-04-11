@@ -108,3 +108,32 @@ Run the `.msi` file you downloaded and simply follow the guide. You can just cli
 Open Windows PowerShell and run:
 
     npm install -g phonegap
+
+## Create a Android Virtual Device (AVD)
+
+We are about to create a virtual Android system (AVD) on your computer. To start with we should find an Android target. Run the following
+
+    android list target
+
+You will see a list of all available targets on your system. I will be using `android-19`.
+
+Next step is to create an AVD. Run this command
+
+    android create avd --name Nexus5 --target android-19
+
+## Write your first PhoneGap project
+
+### Initialize the project directory
+
+We will now initialize the PhoneGap project.
+
+    phonegap create TeacherFinder
+    cd TeacherFinder
+
+This will start a new PhoneGap project with the initial file structure.
+
+### Start the Android emulator
+
+You should now start the Android emulator. This might take some time the first time you do it, as PhoneGap will download requirements.
+
+    phonegap run android
