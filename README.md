@@ -30,20 +30,31 @@ First off we need to find out where your JDK is installed.
 - Navigate to `C:\Program Files\Java\jdk1.8.0\bin`. This is the default location for the JDK, if you installed it elsewhere, go there instead.
 - Copy the path from the file explorer
 
+![JDK location](images/JDK location.png)
+
 The next thing we need to do is to add Java to your system `PATH`.
 
 - Open the **Control Panel**
 - Search for `variables`
 - Click **Edit the system environment variables**
+
+![Control panel - Environment variables](images/Control Panel - Environment variables.png)
+
 - Click **Environment Variables**
 - Under *User variables*, click **New** (or **Edit** if you already have a variable called `PATH`)
 - If you are creating a new variable, write ``PATH`` in *Variable name*
 - Add the path you copied above to the **Variable value** field. Separate multiple paths with a `;`.
 - Click **OK**
+
+![Adding a PATH](images/Adding a PATH.png)
+
 - Under *System variables*, click **New** (or **Edit** if you already have a variable called `JAVA_HOME`)
 - If you are creating a new variable, write ``JAVA_HOME`` in *Variable name*
 - Add the path you copied previously to the *Variable value* field. BUT remove the trailing `\bin`. So the path in this example should be `C:\Program Files\Java\jdk1.8.0`. If you already have a value here, keep it and separate the paths using `;`
 - Click **OK**
+
+![Adding JAVA_HOME](images/Adding JAVA_HOME.png)
+
 - Close all dialogues
 
 ## Installing Apache Ant
@@ -139,3 +150,5 @@ This will start a new PhoneGap project with the initial file structure.
 You should now start the Android emulator. This might take some time the first time you do it, as PhoneGap will download requirements. Make sure that you are in the `TeacherFinder` folder.
 
     phonegap run android
+
+![Initial PhoneGap Android App](images/Initial PhoneGap Android App.png)
