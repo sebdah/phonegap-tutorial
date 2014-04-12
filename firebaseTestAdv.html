@@ -1,0 +1,68 @@
+<html>
+<head>
+  <title>Testing Firebase</title>
+</head>
+<body>
+
+  <div id="teacherSelector">
+    <h2>Teacher selector</h2>
+    Choose teacher:<br>
+    <input type="text" id="selectedTeacher"><button type="button" onclick="updateTeacher();">Update</button>
+  </div>
+
+  <div id="setLocation">
+    <h2>Set location</h2>
+    New location:<br>
+    <input type="text" id="newLocation"><button type="button" onclick="updateLocation();">Update</button>
+  </div>
+
+  <div id="currentLocation">
+    <h2>Current location</h2>
+    Current location: <strong><span id="location"></span></strong>
+  </div>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script type='text/javascript' src='https://cdn.firebase.com/js/client/1.0.11/firebase.js'></script>
+  <script type="text/javascript">
+    var myRootRef = new Firebase('https://sizzling-fire-6418.firebaseio.com/');
+
+    function getTeacherRef () {
+      var teacher = $("#selectedTeacher").val();
+
+      if (!teacher) {
+        return;
+      } else {
+        return myRootRef.child('teachers/' + teacher);
+      }
+    }
+
+    function updateLocation () {
+      var location = $("#newLocation").val();
+      var teacher = $("#selectedTeacher").val();
+      var teacherRef = getTeacherRef(teacher);
+
+      if (!teacher || !teacherRef) {
+        alert('You have not selected a teacher yet');
+      } else {
+        teacherRef.set({ "location": location });
+        console.log('Updated location to ' + location + ' for ' + teacher);
+      }
+    }
+
+    function updateTeacher () {
+      var teacher = $("#selectedTeacher").val();
+      var teacherRef = getTeacherRef(teacher);
+
+      teacherRef.on('value', function (snapshot) {
+        var snapshot = snapshot.val();
+
+        if (snapshot) {
+          $("#location").text(snapshot.location);
+        } else {
+          $("#location").text("N/A");
+        }
+      })
+    }
+  </script>
+</body>
+</html>
