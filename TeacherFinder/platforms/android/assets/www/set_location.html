@@ -29,10 +29,39 @@
     <body>
         <div class="app">
             <h1>Set your location</h1>
+            <input type="text" id="locationName">
+            <button type="button" onclick="setLocation();">Update</button>
+            <br />
+            <br />
+            Current location: <span id="currentLocation">N/A</span>
         </div>
         <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
+        <script type='text/javascript' src='https://cdn.firebase.com/js/client/1.0.11/firebase.js'></script>
+        <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
         <script type="text/javascript">
+            // Connect to Firebase
+            var firebaseRootRef = new Firebase('https://sizzling-fire-6418.firebaseio.com/');
+
+            // Watch for changes
+            firebaseRootRef.on('value', function (data) {
+                var status = data.val();
+
+                alert('Current location from Firebase: ' + status.location);
+                $("#currentLocation").text(status.location);
+            });
+
+            function setLocation () {
+                var location = $('#locationName').val();
+                firebaseRootRef.set(
+                    {
+                        "teacher": "Sebastian",
+                        "location": location
+                    }
+                );
+                alert("Location updated to " + location);
+            }
+
             app.initialize();
         </script>
     </body>
